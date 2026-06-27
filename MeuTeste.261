@@ -1,0 +1,19 @@
+// Teste do filtro de nivel 2 - BobEnzo2026-1
+
+program MeuProg declarations
+
+// CASO 1: realConst com 31 chars validos apos o ponto
+// 123456789012345678901234567890.1
+// O ponto cai exatamente na posicao 31 (char 31 valido)
+// Apos truncagem em 30, o resultado seria "123456789012345678901234567890"
+// sem o ponto → nao e realConst valido → filtro nível 2 DESCARTA o átomo
+varType real: x1 := 123456789012345678901234567890.1 ;
+
+// CASO 2: stringConst truncada sem fechar
+// "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234"
+// pos 1=aspa, pos 2..29=28 chars de miolo, pos 30=30o char valido
+// Se o miolo tem mais de 28 chars, a aspa de fechamento fica fora dos 30
+// filtro nivel 2 REPARA: substitui o 30o char por aspa de fechamento
+varType string: s1 := "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345extra" ;
+
+endDeclarations endProgram

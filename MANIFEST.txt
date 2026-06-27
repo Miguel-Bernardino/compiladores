@@ -1,0 +1,15 @@
+Files to include in delivery (source)
+
+Root files:
+- main.py
+- MeuTeste.261
+- MeuTeste.LEX (generated output)
+- MeuTeste.TAB (generated output)
+
+Folders to include:
+- LexerScanner/ (LexerScanner.py)
+- Reserved/ (ReservedWords.py, ReservedSymbols.py, ReservedIdentifiers.py)
+- Symbol/ (SymbolTable.py, Symbolnfo.py)
+- Token/ (Token.py, TokenType.py)
+
+If you prefer, copy these files into the 6.LEX/src/ folder before zipping for submission.

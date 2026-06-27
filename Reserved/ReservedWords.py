@@ -1,4 +1,4 @@
-class ReservedWordsCategory:
+class ReservedWords:
     def __init__(self):
         self._reserved_words_table = {
             "BOOLEAN"         :     0xA01, 
