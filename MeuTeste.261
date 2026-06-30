@@ -8,7 +8,10 @@ program MeuProg declarations
 // Apos truncagem em 30, o resultado seria "123456789012345678901234567890"
 // sem o ponto → nao e realConst valido → filtro nível 2 DESCARTA o átomo
 // 12345678901234567890.12
-varType real: x1 := 123456789012345678901234567890.12345678912345;
+varType real: x1 := 123456789012345678901234567890.123456789012345678901234567890;
+varType real: m@2 := "aedawdaw"
+
+123 # 456
 
 // CASO 2: stringConst truncada sem fechar
 // "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234"
@@ -16,5 +19,7 @@ varType real: x1 := 123456789012345678901234567890.12345678912345;
 // Se o miolo tem mais de 28 chars, a aspa de fechamento fica fora dos 30
 // filtro nivel 2 REPARA: substitui o 30o char por aspa de fechamento
 varType string: s1 := "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345extra" ;
-
+/*
+aijdh9awhdfgawauf
+*/
 endDeclarations endProgram

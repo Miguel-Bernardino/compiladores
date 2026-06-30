@@ -43,7 +43,9 @@ def _level2_repair_realconst(chars: list[str], real_part: str) -> list[str]:
     if not int_part or not int_part.isdigit():
         return []
     
-    if(int_len >= 29 - len(real_part) and len(real_part) <= 15):
+    if(len(real_part) > 15):
+        real_part = real_part[:15]  # truncate fractional part to 15 digits
+    if(int_len >= 29 - len(real_part) and len(real_part) <= 15 and len(real_part) > 0):
         return list(int_part[:29 - len(real_part)] + '.' + real_part[:len(real_part)])  # truncate fractional part to fit 30 chars
 
     # collect only contiguous fractional digits after the point
@@ -205,7 +207,7 @@ class LexerScanner:
         # 1. Reserved word? (A-codes)
         code = self.reserved_words.contains(truncated)
         if code:
-            return Token(TokenType.RESERVED_WORD, truncated, start_line, start_column)
+            return Token(TokenType.RESERVED_WORD, truncated, start_line, start_column, hex(code).upper()[2:5])
 
         # 2. Plain identifier → C01, goes into symbol table
         id_code = self.reserved_ids.contains("VARIABLE")  # 0xC01
@@ -213,7 +215,7 @@ class LexerScanner:
             truncated, id_code, start_line, start_column,
             len_before_trunc=len_before, len_after_trunc=len_after
         )
-        return Token(TokenType.RESERVED_IDENTIFIER, truncated, start_line, start_column)
+        return Token(TokenType.RESERVED_IDENTIFIER, truncated, start_line, start_column, hex(id_code).upper()[2:5])
 
     # ------------------------------------------------------------------
     # Integer and real constants
@@ -293,7 +295,7 @@ class LexerScanner:
             lexeme, id_code, start_line, start_column,
             len_before_trunc=total_valid, len_after_trunc=len(lexeme)
         )
-        return Token(TokenType.RESERVED_IDENTIFIER, lexeme, start_line, start_column)
+        return Token(TokenType.RESERVED_IDENTIFIER, lexeme, start_line, start_column, hex(id_code).upper()[2:5])
 
     # ------------------------------------------------------------------
     # String constants
@@ -344,7 +346,7 @@ class LexerScanner:
             lexeme, id_code, start_line, start_column,
             len_before_trunc=total_valid, len_after_trunc=len(lexeme)
         )
-        return Token(TokenType.RESERVED_IDENTIFIER, lexeme, start_line, start_column)
+        return Token(TokenType.RESERVED_IDENTIFIER, lexeme, start_line, start_column, hex(id_code).upper()[2:5])
 
     # ------------------------------------------------------------------
     # Character constants
@@ -373,7 +375,7 @@ class LexerScanner:
                     lexeme, id_code, start_line, start_column,
                     len_before_trunc=3, len_after_trunc=3
                 )
-                return Token(TokenType.RESERVED_IDENTIFIER, lexeme, start_line, start_column)
+                return Token(TokenType.RESERVED_IDENTIFIER, lexeme, start_line, start_column, hex(id_code).upper()[2:5])
 
         # Malformed — opening quote already consumed, just continue
         return None
@@ -397,14 +399,14 @@ class LexerScanner:
             code = self.reserved_symbols.contains(two)
             if code:
                 self.advance(); self.advance()
-                return Token(TokenType.RESERVED_SYMBOL, two, start_line, start_column)
+                return Token(TokenType.RESERVED_SYMBOL, two, start_line, start_column, hex(code).upper()[2:5])
 
         # Single-character candidates
         one  = self.source_code[self.position]
         code = self.reserved_symbols.contains(one)
         if code:
             self.advance()
-            return Token(TokenType.RESERVED_SYMBOL, one, start_line, start_column)
+            return Token(TokenType.RESERVED_SYMBOL, one, start_line, start_column, hex(code).upper()[2:5] )
 
         return None
 

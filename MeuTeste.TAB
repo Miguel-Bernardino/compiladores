@@ -8,23 +8,39 @@ Daniel Fernandes da Cunha Vasconcelos; daniel.vasconcelos@aln.senaicimatec.edu.b
 RELATÓRIO DA TABELA DE SÍMBOLOS.
 Texto fonte analisado: MeuTeste.261
 
-Entrada: 1, Código: C01, Lexeme: MEUPROG,
+Entrada: 1, Código: 3073, Lexeme: MEUPROG,
 QtdCharsAntesTrunc: 7, QtdCharDepoisTrunc: 7,
 TipoSimb: -, Linhas: (3).
 ----------------------------------------------------------------
-Entrada: 2, Código: C01, Lexeme: X1,
+Entrada: 2, Código: 3073, Lexeme: X1,
 QtdCharsAntesTrunc: 2, QtdCharDepoisTrunc: 2,
 TipoSimb: -, Linhas: (11).
 ----------------------------------------------------------------
-Entrada: 3, Código: C07, Lexeme: 123456789012345.12345678912345,
-QtdCharsAntesTrunc: 45, QtdCharDepoisTrunc: 30,
+Entrada: 3, Código: 3079, Lexeme: 12345678901234.123456789012345,
+QtdCharsAntesTrunc: 61, QtdCharDepoisTrunc: 30,
 TipoSimb: -, Linhas: (11).
 ----------------------------------------------------------------
-Entrada: 4, Código: C01, Lexeme: S1,
+Entrada: 4, Código: 3073, Lexeme: M2,
 QtdCharsAntesTrunc: 2, QtdCharDepoisTrunc: 2,
-TipoSimb: -, Linhas: (18).
+TipoSimb: -, Linhas: (12).
 ----------------------------------------------------------------
-Entrada: 5, Código: C04, Lexeme: "ABCDEFGHIJKLMNOPQRSTUVWXYZ12",
+Entrada: 5, Código: 3076, Lexeme: "AEDAWDAW",
+QtdCharsAntesTrunc: 10, QtdCharDepoisTrunc: 10,
+TipoSimb: -, Linhas: (12).
+----------------------------------------------------------------
+Entrada: 6, Código: 3078, Lexeme: 123,
+QtdCharsAntesTrunc: 3, QtdCharDepoisTrunc: 3,
+TipoSimb: -, Linhas: (14).
+----------------------------------------------------------------
+Entrada: 7, Código: 3078, Lexeme: 456,
+QtdCharsAntesTrunc: 3, QtdCharDepoisTrunc: 3,
+TipoSimb: -, Linhas: (14).
+----------------------------------------------------------------
+Entrada: 8, Código: 3073, Lexeme: S1,
+QtdCharsAntesTrunc: 2, QtdCharDepoisTrunc: 2,
+TipoSimb: -, Linhas: (21).
+----------------------------------------------------------------
+Entrada: 9, Código: 3076, Lexeme: "ABCDEFGHIJKLMNOPQRSTUVWXYZ12",
 QtdCharsAntesTrunc: 38, QtdCharDepoisTrunc: 30,
-TipoSimb: -, Linhas: (18).
+TipoSimb: -, Linhas: (21).
 ----------------------------------------------------------------

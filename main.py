@@ -56,11 +56,10 @@ def generate_lex_report(lex_entries: list, source_filename: str) -> str:
     lines = [build_header("RELATÓRIO DA ANÁLISE LÉXICA.", source_filename)]
 
     for token, atom_code, sym_index in lex_entries:
-        code_str  = format_atom_code(token.type, atom_code)
         index_str = str(sym_index) if sym_index is not None else "-"
         lines.append(
             f"Lexeme: {token.lexeme}, "
-            f"Código: {code_str}, "
+            f"Código: {token.atom_code}, "
             f"indiceTabSimb: {index_str}, "
             f"Linha: {token.line}."
         )
@@ -77,11 +76,10 @@ def generate_tab_report(symbol_table, source_filename: str) -> str:
     for symbol in symbol_table.get_all_symbols():
         # Derive the formatted code string from the atom_code stored in SymbolInfo
         # The prefix letter matches the token type: C-codes are RESERVED_IDENTIFIER
-        code_str = f"C{symbol.atom_code & 0xFF:02d}"
 
         lines.append(
             f"Entrada: {symbol.index}, "
-            f"Código: {code_str}, "
+            f"Código: {symbol.atom_code}, "
             f"Lexeme: {symbol.lexeme},"
         )
         lines.append(
