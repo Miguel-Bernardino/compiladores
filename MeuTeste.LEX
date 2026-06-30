@@ -16,7 +16,7 @@ Lexeme: REAL, Código: A32, indiceTabSimb: -, Linha: 11.
 Lexeme: :, Código: B03, indiceTabSimb: -, Linha: 11.
 Lexeme: X1, Código: C01, indiceTabSimb: 2, Linha: 11.
 Lexeme: :=, Código: B04, indiceTabSimb: -, Linha: 11.
-Lexeme: 123456789012345678901234567.12, Código: C07, indiceTabSimb: 3, Linha: 11.
+Lexeme: 123456789012345.12345678912345, Código: C07, indiceTabSimb: 3, Linha: 11.
 Lexeme: ;, Código: B01, indiceTabSimb: -, Linha: 11.
 Lexeme: VARTYPE, Código: A36, indiceTabSimb: -, Linha: 18.
 Lexeme: STRING, Código: A34, indiceTabSimb: -, Linha: 18.

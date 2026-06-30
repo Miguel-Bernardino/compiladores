@@ -8,7 +8,7 @@ program MeuProg declarations
 // Apos truncagem em 30, o resultado seria "123456789012345678901234567890"
 // sem o ponto → nao e realConst valido → filtro nível 2 DESCARTA o átomo
 // 12345678901234567890.12
-varType real: x1 := 123456789012345678901234567890.123123;
+varType real: x1 := 123456789012345678901234567890.12345678912345;
 
 // CASO 2: stringConst truncada sem fechar
 // "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234"
