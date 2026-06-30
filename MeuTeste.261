@@ -3,11 +3,12 @@
 program MeuProg declarations
 
 // CASO 1: realConst com 31 chars validos apos o ponto
-// 123456789012345678901234567890.1
+// 123456789012345678901234567890.123123
 // O ponto cai exatamente na posicao 31 (char 31 valido)
 // Apos truncagem em 30, o resultado seria "123456789012345678901234567890"
 // sem o ponto → nao e realConst valido → filtro nível 2 DESCARTA o átomo
-varType real: x1 := 123456789012345678901234567890.1 ;
+// 12345678901234567890.12
+varType real: x1 := 123456789012345678901234567890.123123;
 
 // CASO 2: stringConst truncada sem fechar
 // "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234"

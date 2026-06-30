@@ -14,13 +14,17 @@ TipoSimb: -, Linhas: (3).
 ----------------------------------------------------------------
 Entrada: 2, Código: C01, Lexeme: X1,
 QtdCharsAntesTrunc: 2, QtdCharDepoisTrunc: 2,
-TipoSimb: -, Linhas: (10).
+TipoSimb: -, Linhas: (11).
 ----------------------------------------------------------------
-Entrada: 3, Código: C01, Lexeme: S1,
+Entrada: 3, Código: C07, Lexeme: 123456789012345678901234567.12,
+QtdCharsAntesTrunc: 37, QtdCharDepoisTrunc: 30,
+TipoSimb: -, Linhas: (11).
+----------------------------------------------------------------
+Entrada: 4, Código: C01, Lexeme: S1,
 QtdCharsAntesTrunc: 2, QtdCharDepoisTrunc: 2,
-TipoSimb: -, Linhas: (17).
+TipoSimb: -, Linhas: (18).
 ----------------------------------------------------------------
-Entrada: 4, Código: C04, Lexeme: "ABCDEFGHIJKLMNOPQRSTUVWXYZ12",
+Entrada: 5, Código: C04, Lexeme: "ABCDEFGHIJKLMNOPQRSTUVWXYZ12",
 QtdCharsAntesTrunc: 38, QtdCharDepoisTrunc: 30,
-TipoSimb: -, Linhas: (17).
+TipoSimb: -, Linhas: (18).
 ----------------------------------------------------------------

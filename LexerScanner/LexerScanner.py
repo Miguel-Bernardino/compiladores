@@ -26,7 +26,7 @@ MAX_ATOM_LEN = 30   # spec: max 30 valid chars per atom
 # that lost their ending quote at the 30-char limit.
 # ---------------------------------------------------------------------------
 
-def _level2_repair_realconst(chars: list[str]) -> list[str]:
+def _level2_repair_realconst(chars: list[str], real_part: str) -> list[str]:
     """Repair a truncated real constant (max 30 chars).
 
     Return a list matching <digits>.<digits>, or [] if it cannot be fixed.
@@ -34,12 +34,17 @@ def _level2_repair_realconst(chars: list[str]) -> list[str]:
     s = ''.join(chars)
 
     dot_pos = s.find('.')
-    if dot_pos == -1:
+    if dot_pos == -1 and not real_part:
         return []   # truncation removed the dot -> not a realConst
 
     int_part = s[:dot_pos]
+    int_len = len(int_part)
+
     if not int_part or not int_part.isdigit():
         return []
+    
+    if(int_len >= 27):
+        return list(int_part[:27] + '.' + real_part[:2])  # truncate fractional part to fit 30 chars
 
     # collect only contiguous fractional digits after the point
     frac_digits = ''
@@ -247,8 +252,7 @@ class LexerScanner:
                 self.advance()  # level-1 filter
 
         is_real = False
-
-        # --- optional fractional part: '.' digit+ ---
+        real_part = '';
         if self._current() == '.' and self._peek() is not None and (self._peek() or '').isdigit():
             is_real = True
             _store('.')
@@ -259,6 +263,7 @@ class LexerScanner:
                 ch = self.source_code[self.position]
                 if ch.isdigit():
                     _store(ch)
+                    real_part += ch
                     total_valid += 1
                     self.advance()
                 elif self._is_valid(ch):
@@ -277,7 +282,7 @@ class LexerScanner:
         # atom is invalid and is silently discarded.
         # ------------------------------------------------------------------
         if is_real:
-            repaired = _level2_repair_realconst(chars)
+            repaired = _level2_repair_realconst(chars, real_part)
             if not repaired:
                 # atom could not be repaired — discard (level 2)
                 return None
