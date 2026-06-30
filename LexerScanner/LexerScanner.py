@@ -43,8 +43,8 @@ def _level2_repair_realconst(chars: list[str], real_part: str) -> list[str]:
     if not int_part or not int_part.isdigit():
         return []
     
-    if(int_len >= 27):
-        return list(int_part[:27] + '.' + real_part[:2])  # truncate fractional part to fit 30 chars
+    if(int_len >= 25):
+        return list(int_part[:27 - len(real_part)] + '.' + real_part[:len(real_part)])  # truncate fractional part to fit 30 chars
 
     # collect only contiguous fractional digits after the point
     frac_digits = ''
